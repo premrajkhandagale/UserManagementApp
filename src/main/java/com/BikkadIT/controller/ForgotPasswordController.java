@@ -1,0 +1,23 @@
+package com.BikkadIT.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.BikkadIT.service.UserServiceI;
+
+@RestController
+public class ForgotPasswordController {
+	
+	@Autowired
+	private UserServiceI userServiceI;
+	@GetMapping("/forgotpwd/{email}")
+	public String forgotPwd(@PathVariable String email)
+	{
+		String forgotPwd = userServiceI.forgotPwd(email);
+		return forgotPwd;
+		
+	}
+
+}
